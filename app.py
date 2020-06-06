@@ -152,10 +152,11 @@ class ShipmentView(Resource):
         except Exception as e:
             return jsonify(e)
         
-    """
-    Update token
-    """
-    def patch(self, id):
+
+    def put(self, id):
+        """
+        Update shipment
+        """
         try:
             data = self.parser.parse_args()
             token = data["Authorization"]
