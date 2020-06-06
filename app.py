@@ -74,6 +74,9 @@ shipment_schema = ShipmentSchema()
 shipments_schema = ShipmentSchema(many=True)
 
 class GenerateToken(Resource):
+    """
+    API to generate token to authenticate users
+    """
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument("user_id", type=str)
@@ -83,6 +86,7 @@ class GenerateToken(Resource):
         
         user_token = client.create_user_token(user_id)
         return ({'token': user_token})
+
 
 class ShipmentView(Resource):
     """
